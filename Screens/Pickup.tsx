@@ -58,6 +58,8 @@ const Pickup = ({navigation}:NavigationProps) => {
           </Box>
           {/* order container starts here */}
           {/* first card starts here */}
+
+          
           <Box
             style={{
               display: "flex",

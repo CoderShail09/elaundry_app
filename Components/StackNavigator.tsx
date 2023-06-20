@@ -9,6 +9,7 @@ import Pickup from '../Screens/Pickup'
 import Category from '../Screens/Category'
 import Services from '../Screens/services'
 import AccountInfo from '../Screens/AccountInfo'
+import OrderDelevery from '../Screens/OrderDelevery'
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator()
@@ -22,6 +23,7 @@ const StackNavigator = () => {
     <Stack.Screen name="Category"  component={Category} options={{headerShown:false}}   />
     <Stack.Screen name="Services"  component={Services} options={{headerShown:false}}   />
     <Stack.Screen name="Accountinfo"  component={AccountInfo} options={{headerShown:false}}   />
+    <Stack.Screen name="OrderDelevery"  component={OrderDelevery} options={{headerShown:false}}   />
          
     </Stack.Navigator>
  </NavigationContainer>

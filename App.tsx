@@ -10,12 +10,13 @@ import Category from "./Screens/Category";
 import Services from "./Screens/services";
 import Test from "./Screens/Test";
 import AccountInfo from "./Screens/AccountInfo";
+import OrderDelevery from "./Screens/OrderDelevery";
 
 export default function App() {
   return (
    
      <NativeBaseProvider>
-      <StackNavigator />
+      <StackNavigator/>
      </NativeBaseProvider>
   );
 }
