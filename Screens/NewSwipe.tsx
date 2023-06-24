@@ -15,14 +15,11 @@ import Entypo from "@expo/vector-icons/build/Entypo";
 import Swipelist from "react-native-swipeable-list-view";
 import { FontAwesome5 } from "@expo/vector-icons";
 
-
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
-interface NavigationProps {
-  navigation?: any;
-}
 
-const Category = ({ navigation }: NavigationProps) => {
+
+const NewSwipe = () => {
 
   const data = [
     {
@@ -81,9 +78,9 @@ const Category = ({ navigation }: NavigationProps) => {
           Alert.alert("Delete?","Are you sure to delete this item");
         }}
         style={{ marginTop: 20, backgroundColor: "#002B6B", width: 60,borderRadius:10 ,height:90,marginRight:50}}>
-          
+          <Text style={{ fontSize: 16 ,margin:"auto"}}>
           <AntDesign name="delete" size={24} color="white" />
-      
+          </Text>
         </Button>
     );
   };
@@ -91,7 +88,7 @@ const Category = ({ navigation }: NavigationProps) => {
 
   return (
     <SafeAreaView>
-      
+      <ScrollView>
       <View style={{ height: 926, width: 428, backgroundColor: "#E5E5E5" }}>
         <Box
           style={{
@@ -102,18 +99,12 @@ const Category = ({ navigation }: NavigationProps) => {
             justifyContent: "space-between",
           }}
         >
-          <TouchableOpacity
-              onPress={() => {
-                navigation.navigate("Homepage");
-              }}
-            >
-              <AntDesign
-                name="left"
-                size={24}
-                color="#5D7EFC"
-                style={{ marginTop: 30, marginLeft: 10 }}
-              />
-            </TouchableOpacity>
+          <AntDesign
+            name="left"
+            size={24}
+            color="#5D7EFC"
+            style={{ marginTop: 30, marginLeft: 10 }}
+          />
 
           <Box
             style={{
@@ -390,7 +381,7 @@ const Category = ({ navigation }: NavigationProps) => {
         />
         
       </View>
-      
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -420,12 +411,14 @@ const styles = StyleSheet.create({
   },
   rightAction: {
     marginTop: 30,
+  
     marginVertical: 40,
     alignItems: "center",
+  
     height: 60,
     backgroundColor: "#ffffff",
     shadowColor: "#000",
    
   } 
 })
-export default Category;
+export default NewSwipe;

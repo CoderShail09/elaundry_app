@@ -24,9 +24,9 @@ const Welcome = ({ navigation }: NavigationProps) => {
     if (email === '') {
       Alert.alert('Error', 'Please enter an email address');
     } else if (!emailRegex.test(email)) {
-      Alert.alert('Error', 'Please enter a valid email address🔒🔒');
+      Alert.alert('Error', 'Please enter a valid email address 🔒🔒');
     } else {
-      Alert.alert('Success', 'Email is valid Login Succesfull🔑🔑');
+      Alert.alert('Success', ' You Have been succesfully LogIn🌟🌟');
       navigation.navigate("Homepage")
       
       

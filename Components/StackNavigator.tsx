@@ -1,4 +1,3 @@
-import { View, Text ,StyleProp } from 'react-native'
 import React from 'react'
 import {NavigationContainer} from "@react-navigation/native"
 import {createNativeStackNavigator} from "@react-navigation/native-stack"
@@ -10,6 +9,8 @@ import Category from '../Screens/Category'
 import Services from '../Screens/services'
 import AccountInfo from '../Screens/AccountInfo'
 import OrderDelevery from '../Screens/OrderDelevery'
+import NewOrder from '../Screens/NewOrder'
+import PickupFilter from '../Screens/PIckupFilter'
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator()
@@ -24,6 +25,8 @@ const StackNavigator = () => {
     <Stack.Screen name="Services"  component={Services} options={{headerShown:false}}   />
     <Stack.Screen name="Accountinfo"  component={AccountInfo} options={{headerShown:false}}   />
     <Stack.Screen name="OrderDelevery"  component={OrderDelevery} options={{headerShown:false}}   />
+    <Stack.Screen name="NewOrder"  component={NewOrder} options={{headerShown:false}}   />
+    <Stack.Screen name="PickupFilter"  component={PickupFilter} options={{headerShown:false}}   />
          
     </Stack.Navigator>
  </NavigationContainer>

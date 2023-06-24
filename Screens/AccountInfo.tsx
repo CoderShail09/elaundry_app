@@ -1,9 +1,14 @@
 import React from "react";
 import { View, Text, Box, ScrollView } from "native-base";
 import { AntDesign, Entypo } from "@expo/vector-icons";
-import { SafeAreaView } from "react-native";
+import { SafeAreaView,TouchableOpacity } from "react-native";
 
-function AccountInfo() {
+
+interface NavigationProps {
+  navigation?: any;
+}
+
+const AccountInfo = ({navigation}:NavigationProps)  => {
   return (
     <ScrollView>
       <SafeAreaView>
@@ -17,13 +22,14 @@ function AccountInfo() {
               justifyContent: "space-between",
             }}
           >
+            <TouchableOpacity onPress={()=> {navigation.navigate("Pickup")}} >
             <AntDesign
               name="left"
               size={24}
               color="#5D7EFC"
               style={{ marginTop: 30, marginLeft: 10 }}
             />
-
+            </TouchableOpacity>
             <Box
               style={{
                 width: 242,

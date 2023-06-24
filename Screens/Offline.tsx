@@ -12,12 +12,14 @@ import Feather from "@expo/vector-icons/build/Feather";
 import { useNavigation } from '@react-navigation/native';
 import Homepage from './Homepage';
 
-function Offline() {
+interface NavigationProps {
+  navigation?: any;
+}
+const Offline = ({navigation}:NavigationProps) => {
 
  // validation starts here //
 
   const [email, setEmail] = useState('')
-  const navigation = useNavigation();
 
   const handleEmailChange = (text: React.SetStateAction<string>) => {
     setEmail(text);
@@ -220,6 +222,7 @@ function Offline() {
                 colorScheme=""
                 borderRadius="3px"
                 backgroundColor="#D9D9D9"
+                
                 
               >
                 <Text style={{fontSize:20,lineHeight:17,fontWeight:"bold"}}>Logout</Text>

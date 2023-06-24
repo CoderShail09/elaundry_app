@@ -1,9 +1,13 @@
 import React from "react";
 import { View, Text, Box, ScrollView } from "native-base";
-import { AntDesign, Entypo } from "@expo/vector-icons";
-import { SafeAreaView,ImageBackground } from "react-native";
+import { AntDesign, Entypo, MaterialIcons } from "@expo/vector-icons";
+import { SafeAreaView,ImageBackground,Image,TouchableOpacity } from "react-native";
 
-function OrderDelevery() {
+interface NavigationProps {
+  navigation?: any;
+}
+
+const OrderDelevery= ({navigation}:NavigationProps) => {
   return (
     <ScrollView>
       <SafeAreaView>
@@ -17,13 +21,14 @@ function OrderDelevery() {
               justifyContent: "space-between",
             }}
           >
+            <TouchableOpacity onPress={()=> {navigation.navigate("Homepage")}}>
             <AntDesign
               name="left"
               size={24}
               color="#5D7EFC"
               style={{ marginTop: 30, marginLeft: 10 }}
             />
-
+        </TouchableOpacity>
             <Box
               style={{
                 width: 242,
@@ -51,13 +56,13 @@ function OrderDelevery() {
                 Select Order to Deliver
               </Text>
             </Box>
-
-            <Entypo
-              name="dots-three-vertical"
-              size={24}
-              color="black"
-              style={{ marginTop: 30, marginRight: 46 }}
+             
+           <TouchableOpacity onPress={()=> {navigation.navigate("PickupFilter")}}  >
+            <MaterialIcons name="filter-list-alt" size={35} color="#5D7EFC" 
+            style={{ marginTop: 28, marginRight: 46 }}
             />
+         </TouchableOpacity>
+
           </Box>
           
           <Box
@@ -116,37 +121,73 @@ function OrderDelevery() {
             </View>
            </Box>
 
-           <Box style={{width:350,height:80,borderColor:"#003566",borderStyle:"solid",borderWidth:1,marginLeft:30,display:"flex",flexDirection:"row",borderRadius:11}}>
-            <View style={{width:30,height:30,borderColor:"#003566",borderStyle:"solid",borderWidth:1}}></View>
-
-            <View style={{width:140,height:65,borderColor:"#003566",borderStyle:"solid",borderWidth:1,marginLeft:12}}>
-              <Text style={{fontSize:14,fontWeight:"400",marginLeft:4}}>Picking Up Order</Text>
-              <Text style={{fontSize:10,fontWeight:"400",color:"#646060",marginLeft:4}}>Placed On: <Text style={{color:"#2F2D2D",fontSize:10}}>12th Jan 2023</Text>    </Text>
-              <Text style={{fontSize:10,fontWeight:"400",color:"#646060",marginLeft:4}}>Placed At:  <Text style={{color:"#2F2D2D",fontSize:10}}>East Patel Nagar</Text> </Text>
+           <Box style={{width:350,height:80,borderColor:"#003566",borderStyle:"solid",borderWidth:1,marginLeft:30,display:"flex",flexDirection:"row",borderRadius:11,}}>
+            <View style={{width:30,height:30,borderRadius:30,marginTop:8,marginLeft:8}}>
+            <Image alt="Group-1" source={require('../assets/Photos/group1.png')}></Image>  
             </View>
-            <View style={{width:80,height:60,borderColor:"#003566",borderStyle:"solid",borderWidth:1,marginLeft:80}}>
+
+            <View style={{width:140,height:65,marginLeft:12,marginTop:10}}>
+              <Text style={{fontSize:14,fontWeight:"600",marginLeft:4}}>Picking Up Order</Text>
+              <Text style={{fontSize:10,fontWeight:"400",color:"#646060",marginLeft:4}}>Placed On: <Text style={{color:"#2F2D2D",fontSize:10,fontWeight:"600"}}>12th Jan 2023</Text>    </Text>
+              <Text style={{fontSize:10,fontWeight:"400",color:"#646060",marginLeft:4}}>Placed At:  <Text style={{color:"#2F2D2D",fontSize:10,fontWeight:"600"}}>East Patel Nagar</Text> </Text>
+            </View>
+            <View style={{width:80,height:60,marginLeft:80,marginTop:7}}>
             <Text style={{fontSize:10,fontWeight:'400',color:"#646060",textAlign:"center"}}>Details</Text>
-            <Text style={{fontSize:10,fontWeight:'400',color:"#322F2F",textAlign:"center"}}>Men</Text>
-            <Text style={{fontSize:10,fontWeight:'400',color:"#322F2F",textAlign:"center"}}>Household</Text>
+            <Text style={{fontSize:10,fontWeight:'600',color:"#322F2F",textAlign:"center"}}>Men</Text>
+            <Text style={{fontSize:10,fontWeight:'600',color:"#322F2F",textAlign:"center"}}>Household</Text>
             </View> 
            </Box> 
 
            <Box style={{width:350,height:80,borderColor:"#003566",borderStyle:"solid",borderWidth:1,marginLeft:30,display:"flex",flexDirection:"row",borderRadius:11,marginTop:12}}>
-            <View style={{width:30,height:30,borderColor:"#003566",borderStyle:"solid",borderWidth:1}}></View>
+            <View style={{width:30,height:30,borderRadius:30,marginTop:8,marginLeft:8}}>
+            <Image style={{width:30,height:30}} alt="Group-2" source={require('../assets/Photos/group2.png')}></Image> 
+            </View>
 
-            <View style={{width:140,height:65,borderColor:"#003566",borderStyle:"solid",borderWidth:1,marginLeft:12}}>
+            <View style={{width:140,height:65,marginLeft:12,marginTop:10}}>
               <Text style={{fontSize:14,fontWeight:"400",marginLeft:4}}>Picking Up Order</Text>
               <Text style={{fontSize:10,fontWeight:"400",color:"#646060",marginLeft:4}}>Placed On: <Text style={{color:"#2F2D2D",fontSize:10}}>12th Jan 2023</Text>    </Text>
               <Text style={{fontSize:10,fontWeight:"400",color:"#646060",marginLeft:4}}>Placed At:  <Text style={{color:"#2F2D2D",fontSize:10}}>East Patel Nagar</Text> </Text>
             </View>
-            <View style={{width:80,height:60,borderColor:"#003566",borderStyle:"solid",borderWidth:1,marginLeft:80}}>
+            <View style={{width:80,height:60,marginLeft:80,marginTop:7}}>
             <Text style={{fontSize:10,fontWeight:'400',color:"#646060",textAlign:"center"}}>Details</Text>
-            <Text style={{fontSize:10,fontWeight:'400',color:"#322F2F",textAlign:"center"}}>Men</Text>
-            <Text style={{fontSize:10,fontWeight:'400',color:"#322F2F",textAlign:"center"}}>Household</Text>
+            <Text style={{fontSize:10,fontWeight:'600',color:"#322F2F",textAlign:"center"}}>Men</Text>
+            <Text style={{fontSize:10,fontWeight:'600',color:"#322F2F",textAlign:"center"}}>Household</Text>
             </View> 
            </Box> 
 
-           
+             <Box style={{width:350,height:80,borderColor:"#003566",borderStyle:"solid",borderWidth:1,marginLeft:30,display:"flex",flexDirection:"row",borderRadius:11,marginTop:12}}>
+            <View style={{width:30,height:30,borderRadius:30,marginTop:8,marginLeft:8}}>
+            <Image alt="Group-1" source={require('../assets/Photos/group1.png')}></Image>  
+            </View>
+
+            <View style={{width:140,height:65,marginLeft:12,marginTop:10}}>
+              <Text style={{fontSize:14,fontWeight:"600",marginLeft:4}}>Picking Up Order</Text>
+              <Text style={{fontSize:10,fontWeight:"400",color:"#646060",marginLeft:4}}>Placed On: <Text style={{color:"#2F2D2D",fontSize:10,fontWeight:"600"}}>12th Jan 2023</Text>    </Text>
+              <Text style={{fontSize:10,fontWeight:"400",color:"#646060",marginLeft:4}}>Placed At:  <Text style={{color:"#2F2D2D",fontSize:10,fontWeight:"600"}}>East Patel Nagar</Text> </Text>
+            </View>
+            <View style={{width:80,height:60,marginLeft:80,marginTop:7}}>
+            <Text style={{fontSize:10,fontWeight:'400',color:"#646060",textAlign:"center"}}>Details</Text>
+            <Text style={{fontSize:10,fontWeight:'600',color:"#322F2F",textAlign:"center"}}>Men</Text>
+            <Text style={{fontSize:10,fontWeight:'600',color:"#322F2F",textAlign:"center"}}>Household</Text>
+            </View> 
+           </Box> 
+     
+           <Box style={{width:350,height:80,borderColor:"#003566",borderStyle:"solid",borderWidth:1,marginLeft:30,display:"flex",flexDirection:"row",borderRadius:11,marginTop:12}}>
+            <View style={{width:30,height:30,borderRadius:30,marginTop:8,marginLeft:8}}>
+            <Image style={{width:30,height:30}} alt="Group-2" source={require('../assets/Photos/group2.png')}></Image> 
+            </View>
+
+            <View style={{width:140,height:65,marginLeft:12,marginTop:10}}>
+              <Text style={{fontSize:14,fontWeight:"400",marginLeft:4}}>Picking Up Order</Text>
+              <Text style={{fontSize:10,fontWeight:"400",color:"#646060",marginLeft:4}}>Placed On: <Text style={{color:"#2F2D2D",fontSize:10}}>12th Jan 2023</Text>    </Text>
+              <Text style={{fontSize:10,fontWeight:"400",color:"#646060",marginLeft:4}}>Placed At:  <Text style={{color:"#2F2D2D",fontSize:10}}>East Patel Nagar</Text> </Text>
+            </View>
+            <View style={{width:80,height:60,marginLeft:80,marginTop:7}}>
+            <Text style={{fontSize:10,fontWeight:'400',color:"#646060",textAlign:"center"}}>Details</Text>
+            <Text style={{fontSize:10,fontWeight:'600',color:"#322F2F",textAlign:"center"}}>Men</Text>
+            <Text style={{fontSize:10,fontWeight:'600',color:"#322F2F",textAlign:"center"}}>Household</Text>
+            </View> 
+           </Box> 
 
          
         </View>

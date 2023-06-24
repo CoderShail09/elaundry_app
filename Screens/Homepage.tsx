@@ -130,7 +130,7 @@ const Homepage = ({ navigation }: NavigationProps) => {
               margin: "auto",
             }}
           >
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => {navigation.navigate("NewOrder")}}>
               <View
                 style={{
                   backgroundColor: "#FFFFFF",
@@ -226,7 +226,7 @@ const Homepage = ({ navigation }: NavigationProps) => {
                   marginLeft: 8,
                   borderStyle: "solid",
                   borderColor: "#002B6B1F",
-                  height: 300,
+                  height: 262,
                   width: 177,
                   borderWidth: 1,
                   borderRadius: 18,
@@ -244,11 +244,11 @@ const Homepage = ({ navigation }: NavigationProps) => {
                   User Profile
                 </Text>
                 <Box
-                  style={{ height: 167, width: 172, left: 3, marginTop: 87 }}
+                  style={{ height: 167, width: 172, right: 3, marginTop: 87 }}
                 >
                   <Image
                     alt="image-3"
-                    style={{}}
+                    style={{height:127}}
                     source={require("../assets/Photos/user.png")}
                   />
                 </Box>
