@@ -72,7 +72,7 @@ const Offline = ({navigation}:NavigationProps) => {
             />
 
             <Image
-              alt="ios-notifications-outline"
+              alt="Notification-icon"
               source={require("../assets/Photos/Vector.png")}
               style={{ marginTop: 30, marginRight: 50, height: 22, width: 22 }}
             />

@@ -36,11 +36,13 @@ const Homepage = ({ navigation }: NavigationProps) => {
               }}
             />
 
+           <TouchableOpacity onPress={() => {navigation.navigate("Notification")}} >
             <Image
               alt="ios-notifications-outline"
               source={require("../assets/Photos/Vector.png")}
               style={{ marginTop: 30, marginRight: 50, height: 22, width: 22 }}
             />
+            </TouchableOpacity>
           </Box>
 
           <Text

@@ -11,6 +11,8 @@ import AccountInfo from '../Screens/AccountInfo'
 import OrderDelevery from '../Screens/OrderDelevery'
 import NewOrder from '../Screens/NewOrder'
 import PickupFilter from '../Screens/PIckupFilter'
+import Notification from '../Screens/Notification'
+
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator()
@@ -27,6 +29,7 @@ const StackNavigator = () => {
     <Stack.Screen name="OrderDelevery"  component={OrderDelevery} options={{headerShown:false}}   />
     <Stack.Screen name="NewOrder"  component={NewOrder} options={{headerShown:false}}   />
     <Stack.Screen name="PickupFilter"  component={PickupFilter} options={{headerShown:false}}   />
+    <Stack.Screen name="Notification"  component={Notification} options={{headerShown:false}}   />
          
     </Stack.Navigator>
  </NavigationContainer>
