@@ -1,5 +1,6 @@
 import { View, SafeAreaView, Image, TouchableOpacity } from "react-native";
 import { Box, Text, Button, ScrollView, Link } from "native-base";
+import { homepage } from "../Components/Styles/homepage";
 
 import React from "react";
 
@@ -13,39 +14,41 @@ const Homepage = ({ navigation }: NavigationProps) => {
   return (
     <ScrollView>
       <SafeAreaView>
-        <View style={{ height: 926, width: 428, backgroundColor: "#E5E5E5" }}>
-          <Box
-            style={{
-              marginLeft: 19,
-              marginTop: 30,
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-            }}
-          >
-            <Image
-              style={{
-                width: 45,
-                height: 45,
-                borderRadius: 27.5,
-                marginTop: 20,
-              }}
-              alt="profile-pic"
-              source={{
-                uri: "https://lh3.googleusercontent.com/ogw/AOLn63Gvcqud18bpZN8SVHtRZYQQ-49QfjkzyNVWHyrW8w=s32-c-mo",
-              }}
-            />
+        <View style={homepage.container}>
+          <Box style={homepage.boxLeftIcon}>
 
-           <TouchableOpacity onPress={() => {navigation.navigate("Notification")}} >
-            <Image
-              alt="ios-notifications-outline"
-              source={require("../assets/Photos/Vector.png")}
-              style={{ marginTop: 30, marginRight: 50, height: 22, width: 22 }}
-            />
-            </TouchableOpacity>
+            <Box style={{width:100,height:40,borderStyle:"solid",borderColor:"red",borderWidth:1, marginTop: 30,}}>
+
+            </Box>
+            <Box style={{display:"flex",flexDirection:"row-reverse",right:14}}>
+              <Image
+                style={homepage.imageDp}
+                alt="profile-pic"
+                source={{
+                  uri: "https://lh3.googleusercontent.com/ogw/AOLn63Gvcqud18bpZN8SVHtRZYQQ-49QfjkzyNVWHyrW8w=s32-c-mo",
+                }}
+              />
+
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate("Notification");
+                }}
+              >
+                <Image
+                  alt="ios-notifications-outline"
+                  source={require("../assets/Photos/Vector.png")}
+                  style={{
+                    marginTop: 30,
+                    marginRight: 20,
+                    height: 22,
+                    width: 22,
+                  }}
+                />
+              </TouchableOpacity>
+            </Box>
           </Box>
 
-          <Text
+          {/* <Text
             style={{
               fontSize: 13,
               fontWeight: "400",
@@ -54,8 +57,11 @@ const Homepage = ({ navigation }: NavigationProps) => {
             }}
           >
             Hey, Shail
-          </Text>
-          <Text
+          </Text> */}
+
+
+
+          {/* <Text
             style={{
               marginLeft: 19,
               fontSize: 24,
@@ -65,10 +71,11 @@ const Homepage = ({ navigation }: NavigationProps) => {
             }}
           >
             Welcome back!
-          </Text>
+          </Text> */}
 
           {/* data coming from backend */}
-          <Text
+          <Box style={{left:160}}>
+             <Text
             style={{
               marginLeft: 19,
               fontSize: 14,
@@ -89,13 +96,21 @@ const Homepage = ({ navigation }: NavigationProps) => {
             {/* data coming from backend */}
             RIDERID9718409025
           </Text>
-          <Box style={{ display: "flex" }}>
+          </Box>
+         
+          <Box
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <View
               style={{
                 flexDirection: "row",
                 marginTop: 20,
                 gap: 5,
-                marginLeft: 19,
+                marginLeft: 1,
               }}
             >
               <Button
@@ -119,8 +134,16 @@ const Homepage = ({ navigation }: NavigationProps) => {
               </Button>
             </View>
           </Box>
-          <View style={{ marginTop: 10, marginLeft: 10 }}>
-            <Text style={{ fontWeight: "400", fontSize: 16 }}>Service</Text>
+          <View style={{ marginTop: 20, marginLeft: 40 }}>
+            <Text
+              style={{
+                fontWeight: "600",
+                fontSize: 20,
+                textDecorationLine: "underline",
+              }}
+            >
+              Service
+            </Text>
           </View>
 
           {/* order container starts here */}
@@ -129,15 +152,20 @@ const Homepage = ({ navigation }: NavigationProps) => {
             style={{
               display: "flex",
               flexDirection: "row",
-              margin: "auto",
+              width: "100%",
+              justifyContent: "center",
+              gap: 7,
             }}
           >
-            <TouchableOpacity onPress={() => {navigation.navigate("NewOrder")}}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate("NewOrder");
+              }}
+            >
               <View
                 style={{
                   backgroundColor: "#FFFFFF",
                   marginTop: 10,
-                  marginLeft: 8,
                   borderStyle: "solid",
                   borderColor: "#002B6B1F",
                   height: 262,
@@ -157,7 +185,7 @@ const Homepage = ({ navigation }: NavigationProps) => {
                 >
                   New Order
                 </Text>
-                <Box style={{ height: 194, width: 194, right: 10 }}>
+                <Box style={{ height: 262, width: 177, right: 10 }}>
                   <Image
                     alt="image-2"
                     style={{ marginTop: 30 }}
@@ -175,11 +203,11 @@ const Homepage = ({ navigation }: NavigationProps) => {
               <View
                 style={{
                   backgroundColor: "#FFFFFF",
-                  marginTop: 50,
-                  marginLeft: 8,
+                  marginTop: 10,
+
                   borderStyle: "solid",
                   borderColor: "#002B6B1F",
-                  height: 245,
+                  height: 262,
                   width: 177,
                   borderWidth: 1,
                   borderRadius: 18,
@@ -218,14 +246,16 @@ const Homepage = ({ navigation }: NavigationProps) => {
             style={{
               display: "flex",
               flexDirection: "row",
+              width: "100%",
+              marginTop: 10,
+              justifyContent: "center",
+              gap: 7,
             }}
           >
             <TouchableOpacity>
               <View
                 style={{
                   backgroundColor: "#FFFFFF",
-                  marginTop: -10,
-                  marginLeft: 8,
                   borderStyle: "solid",
                   borderColor: "#002B6B1F",
                   height: 262,
@@ -250,7 +280,7 @@ const Homepage = ({ navigation }: NavigationProps) => {
                 >
                   <Image
                     alt="image-3"
-                    style={{height:127}}
+                    style={{ height: 127 }}
                     source={require("../assets/Photos/user.png")}
                   />
                 </Box>
@@ -265,11 +295,9 @@ const Homepage = ({ navigation }: NavigationProps) => {
               <View
                 style={{
                   backgroundColor: "#FFFFFF",
-                  marginTop: 25,
-                  marginLeft: 8,
                   borderStyle: "solid",
                   borderColor: "#002B6B1F",
-                  height: 270,
+                  height: 262,
                   width: 177,
                   borderWidth: 1,
                   borderRadius: 18,
@@ -286,7 +314,7 @@ const Homepage = ({ navigation }: NavigationProps) => {
                 >
                   Pickup
                 </Text>
-                <Box style={{ height: 194, width: 194 }}>
+                <Box style={{ height: 262, width: 177 }}>
                   <Image
                     alt="image-4"
                     style={{ marginTop: 10 }}

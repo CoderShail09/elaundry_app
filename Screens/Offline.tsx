@@ -48,7 +48,7 @@ const Offline = ({navigation}:NavigationProps) => {
   return (
     <ScrollView>
       <SafeAreaView>
-        <View style={{ height: 926, width: 428, backgroundColor: "#E5E5E5" }}>
+        <View style={{ height: 926, width: 428, backgroundColor: "#F3F1F6" }}>
           <Box
             style={{
               marginLeft: 19,

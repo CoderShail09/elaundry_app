@@ -3,15 +3,14 @@ import { SafeAreaView, StyleSheet, View, Alert } from "react-native";
 import { Image, Box, Text, Center, ScrollView, Button } from "native-base";
 import { AntDesign } from "@expo/vector-icons";
 import { TextInput } from "react-native";
+import { styles } from "../Components/Styles/welcome";
 
 interface NavigationProps {
   navigation?: any;
 }
 
 const Welcome = ({ navigation }: NavigationProps) => {
-
-  const [email, setEmail] = useState('')
-  
+  const [email, setEmail] = useState("");
 
   const handleEmailChange = (text: React.SetStateAction<string>) => {
     setEmail(text);
@@ -21,20 +20,15 @@ const Welcome = ({ navigation }: NavigationProps) => {
     // Email regex pattern
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (email === '') {
-      Alert.alert('Error', 'Please enter an email address');
+    if (email === "") {
+      Alert.alert("Error", "Please enter an email address");
     } else if (!emailRegex.test(email)) {
-      Alert.alert('Error', 'Please enter a valid email address 🔒🔒');
+      Alert.alert("Error", "Please enter a valid email address 🔒🔒");
     } else {
-      Alert.alert('Success', ' You Have been succesfully LogIn🌟🌟');
-      navigation.navigate("Homepage")
-      
-      
-      
-      
+      Alert.alert("Success", " You Have been succesfully LogIn🌟🌟");
+      navigation.navigate("Homepage");
     }
   };
-
 
   return (
     <ScrollView>
@@ -45,7 +39,7 @@ const Welcome = ({ navigation }: NavigationProps) => {
               display: "flex",
               flexDirection: "row",
               justifyContent: "space-between",
-       
+              
             }}
           >
             <AntDesign
@@ -60,7 +54,7 @@ const Welcome = ({ navigation }: NavigationProps) => {
               height="22px"
               width="22px"
               source={require("../assets/Photos/Vector.png")}
-              style={{ marginTop: 30, marginRight: 50 }}
+              style={{ marginTop: 30, marginRight: 40 }}
             />
           </Box>
 
@@ -72,19 +66,19 @@ const Welcome = ({ navigation }: NavigationProps) => {
               source={require("../assets/Photos/elaundry.png")}
               width="250px"
             />
-            <Box marginTop="7px" marginLeft="41px" marginRight="41px">
+            <Box style={{width:"100%",height:299,marginTop:30,display:"flex",justifyContent:"center",alignItems:"center"}}>
               <Image
                 alt="image-2"
                 source={require("../assets/Photos/pngwing.png")}
                 margin="auto"
-                width="345px"
-                height="329px"
+                width="100%"
+                height="100%"
               />
             </Box>
           </Box>
           <View
             style={{
-              marginTop: 15,
+            top: 35,
             }}
           >
             <Center>
@@ -115,7 +109,7 @@ const Welcome = ({ navigation }: NavigationProps) => {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-                  marginRight:20
+                  marginRight: 20,
                 }}
               >
                 <Text
@@ -162,29 +156,54 @@ const Welcome = ({ navigation }: NavigationProps) => {
             </Center>
           </View>
 
-          <View style={{ marginTop: 20, marginLeft: 20 }}>
-            <Text style={{ fontSize: 20, fontWeight: "500" }}>Username</Text>
+          <View
+            style={{
+              marginTop: 40,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Text style={{ fontSize: 15, fontWeight: "500" }}>Username</Text>
           </View>
           <View style={{ display: "flex" }}>
             <Box
-              style={{ display: "flex", flexDirection: "row", marginLeft: 10 }}
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                marginLeft: 10,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
             >
               <TextInput
                 style={styles.input}
                 placeholder="Enter your username"
                 keyboardType="ascii-capable"
                 value={email}
-              onChangeText={handleEmailChange}
+                onChangeText={handleEmailChange}
               />
-
             </Box>
           </View>
-          <View style={{ marginTop: 20, marginLeft: 20 }}>
-            <Text style={{ fontSize: 20, fontWeight: "500", }}>Password</Text>
+          <View
+            style={{
+              marginTop: 20,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Text style={{ fontSize: 15, fontWeight: "500" }}>Password</Text>
           </View>
           <View style={{ display: "flex" }}>
             <Box
-              style={{ display: "flex", flexDirection: "row", marginLeft: 10 }}
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                marginLeft: 10,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
             >
               <TextInput
                 style={styles.input}
@@ -192,85 +211,84 @@ const Welcome = ({ navigation }: NavigationProps) => {
                 keyboardType="ascii-capable"
                 textContentType="password"
               />
-
             </Box>
           </View>
 
-
-          <Box style={{ display: "flex" }}>
+          <Box style={styles.viewButtonTop}>
             <View
-              style={{
-                flexDirection: "row",
-                marginTop: 20,
-                gap: 10,
-                marginLeft: 19,
-              }}
+              style={styles.viewButtonSection}
             >
               <Button
-                
+              
                 variant="solid"
-                width="174px"
-                height="45px"
+                width="37%"
+                height="40px"
                 colorScheme=""
                 borderRadius="7px"
                 backgroundColor="#D9D9D9"
-                
               >
-                <Text style={{fontSize:20,lineHeight:17,fontWeight:"bold",color:"#5D7EFC"}}>Logout</Text>
+                <Text
+                  style={{
+                    fontSize: 20,
+                    lineHeight: 17,
+                    fontWeight: "bold",
+                    color: "#5D7EFC",
+                  }}
+                >
+                  Logout
+                </Text>
               </Button>
               <Button
-                
                 variant="solid"
                 backgroundColor="#5D7EFC"
-                width="174px"
-                height="45px"
+                width="37%"
+                height="40px"
                 borderRadius="7px"
                 onPress={handleEmailValidation}
-
-                
               >
-                <Text style={{fontSize:20,lineHeight:20,color:"#FFFFFF",fontWeight:"bold"}}>Submit</Text>
+                <Text
+                  style={{
+                    fontSize: 20,
+                    lineHeight: 20,
+                    color: "#FFFFFF",
+                    fontWeight: "bold",
+                  }}
+                >
+                  Submit
+                </Text>
               </Button>
             </View>
-          </Box>          
-
-
+          </Box>
         </View>
       </SafeAreaView>
     </ScrollView>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#f3f1f6",
-   
-    height: 990,
-    width: 428,
-    overflow: "scroll",
-  },
-  input: {
-    marginTop: 10,
-    fontSize: 18,
-    height: 45,
-    textAlign: "center",
-    width: 350,
-    padding: 8,
-    color: "#000000",
-    backgroundColor: "#DCDCDE",
-    borderRadius: 10,
-    marginLeft: 10,
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     backgroundColor: "#F3F1F6",
+//     height: 990,
+//     width: "100%",
+//     overflow: "scroll",
+//   },
+//   input: {
+//     marginTop: 10,
+//     fontSize: 18,
+//     height: 45,
+//     textAlign: "center",
+//     width: "100%",
+//     padding: 8,
+//     color: "#000000",
+//     backgroundColor: "#DCDCDE",
+//     borderRadius: 10,
+//     marginLeft: 10,
+//   },
+// });
 export default Welcome;
 
-
-
-
-
-
-
-              {/* <View
+{
+  /* <View
                 style={{
                   width: 48,
                   marginLeft: 5,
@@ -290,4 +308,5 @@ export default Welcome;
                 >
                   <Text style={{ fontSize: 25, color: "white" }}>{">"}</Text>
                 </Button>
-              </View> */}
+              </View> */
+}

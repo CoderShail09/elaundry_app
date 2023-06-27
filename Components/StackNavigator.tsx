@@ -12,6 +12,7 @@ import OrderDelevery from '../Screens/OrderDelevery'
 import NewOrder from '../Screens/NewOrder'
 import PickupFilter from '../Screens/PIckupFilter'
 import Notification from '../Screens/Notification'
+import PickupDate from '../Screens/PickupDate'
 
 
 const StackNavigator = () => {
@@ -30,6 +31,7 @@ const StackNavigator = () => {
     <Stack.Screen name="NewOrder"  component={NewOrder} options={{headerShown:false}}   />
     <Stack.Screen name="PickupFilter"  component={PickupFilter} options={{headerShown:false}}   />
     <Stack.Screen name="Notification"  component={Notification} options={{headerShown:false}}   />
+    <Stack.Screen name="PickupDate"  component={PickupDate} options={{headerShown:false}}   />
          
     </Stack.Navigator>
  </NavigationContainer>

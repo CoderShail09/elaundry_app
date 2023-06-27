@@ -16,7 +16,7 @@ const PickupFilter = ({ navigation }: NavigationProps) => {
   return (
     <ScrollView>
       <SafeAreaView>
-        <View style={{ height: 926, width: 428, backgroundColor: "#E5E5E5" }}>
+        <View style={{ height: 926, width: 428, backgroundColor: "#F3F1F6" }}>
           <ImageBackground
             source={require("../assets/Photos/backg.png")}
             alt="background"
@@ -184,6 +184,11 @@ const PickupFilter = ({ navigation }: NavigationProps) => {
                   </Text>
                 </View>
               </Box>
+
+
+              <TouchableOpacity 
+              onPress={()=> {navigation.navigate("PickupDate")}}
+              >
               <Box
                 style={{
                   width: 290,
@@ -218,7 +223,7 @@ const PickupFilter = ({ navigation }: NavigationProps) => {
                 </View>
                
               </Box>
-
+              </TouchableOpacity>
 
                <Box
                 style={{
@@ -251,6 +256,8 @@ const PickupFilter = ({ navigation }: NavigationProps) => {
                   </Text>
                 </View>
                 
+
+
                 <View
                   style={{
                     flex: 1,
@@ -273,6 +280,7 @@ const PickupFilter = ({ navigation }: NavigationProps) => {
                    Cancel
                   </Text>
                 </View>
+                
               </Box>      
               
             </Box>

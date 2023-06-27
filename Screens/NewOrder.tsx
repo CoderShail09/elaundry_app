@@ -8,6 +8,8 @@ import {
 } from "react-native";
 import { Box, Text, Button, ScrollView } from "native-base";
 import React, { useState } from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 
 interface NavigationProps {
   navigation?: any;
@@ -17,11 +19,7 @@ const NewOrder = ({ navigation }: NavigationProps) => {
   // validation starts here //
 
   const [mob, setMob] = useState("");
-
-  const handleMobileChange = (text: React.SetStateAction<string>) => {
-    setMob(text);
-  };
-
+  
   const handleBack = () => {
     navigation.navigate("Homepage");
   };
@@ -30,20 +28,32 @@ const NewOrder = ({ navigation }: NavigationProps) => {
     // Email regex pattern
     const mobileRegex = /^[0]?[789]\d{9}$/;
 
-    if (mob === "") {
+    if (mob.length === 0) {
       Alert.alert("Error ❓❓", "Please enter an Customer MobileNumber");
     } else if (!mobileRegex.test(mob)) {
       Alert.alert("Error❓❓", "Please enter a valid Mobile Number");
+    } else if (mob.length < 10) {
+      Alert.alert("Error❓❓", "Please enter a 10 Digit number");
     } else {
       Alert.alert("Success ✅✅", "Successfully registered");
+
       navigation.navigate("Pickup");
     }
+  };
+
+  const [values, setValues] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleSubmit = (values: any) => {
+    console.log(values);
   };
 
   return (
     <ScrollView>
       <SafeAreaView>
-        <View style={{ height: 926, width: 428, backgroundColor: "#E5E5E5" }}>
+        <View style={{ height: 926, width: 428, backgroundColor: "#F3F1F6" }}>
           <Box
             style={{
               width: 270,
@@ -66,8 +76,9 @@ const NewOrder = ({ navigation }: NavigationProps) => {
               placeholder="Customer mobile"
               keyboardType="phone-pad"
               value={mob}
-              onChangeText={handleMobileChange}
+              onChangeText={(text) => setMob(text)}
             />
+           
           </Box>
           <Box style={{ display: "flex" }}>
             <View
@@ -125,3 +136,15 @@ const styles = StyleSheet.create({
 });
 
 export default NewOrder;
+
+const validationSchema = Yup.object({
+  password: Yup.string().length(8).required(),
+  number: Yup.number()
+    .required("Required")
+    .max(1000000000000, "Required")
+    .min(0, "Not negative number"),
+});
+
+
+
+

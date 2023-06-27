@@ -2,6 +2,8 @@ import React from "react";
 import { View, Text, Box, ScrollView } from "native-base";
 import { AntDesign, Entypo } from "@expo/vector-icons";
 import { SafeAreaView,TouchableOpacity } from "react-native";
+import { styles } from "../Components/Styles/welcome";
+
 
 
 interface NavigationProps {
@@ -12,7 +14,7 @@ const AccountInfo = ({navigation}:NavigationProps)  => {
   return (
     <ScrollView>
       <SafeAreaView>
-        <View style={{ height: 926, width: 428, backgroundColor: "#E5E5E5" }}>
+        <View style={styles.container}>
           <Box
             style={{
               marginLeft: 5,
