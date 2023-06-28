@@ -7,7 +7,7 @@ import Offline from "./Screens/Offline";
 import Pickup from "./Screens/Pickup";
 import StackNavigator from "./Components/StackNavigator";
 import Category from "./Screens/Category";
-import Services from "./Screens/services";
+import Services from "./Screens/Service";
 import AccountInfo from "./Screens/AccountInfo";
 import OrderDelevery from "./Screens/OrderDelevery";
 import NewOrder from "./Screens/NewOrder";
@@ -19,7 +19,7 @@ import PickupDate from "./Screens/PickupDate";
 export default function App() {
   return (
     <NativeBaseProvider>
-      <StackNavigator/>
+      <Category/>
     </NativeBaseProvider>
   );
 }

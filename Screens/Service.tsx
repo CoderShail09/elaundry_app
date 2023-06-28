@@ -8,11 +8,9 @@ import {
   TouchableOpacity,
   Alert,
   useWindowDimensions,
-  Modal,
-  TextInput,
 } from "react-native";
 import { Box, Text, Button } from "native-base";
-import React, { useState } from "react";
+import React from "react";
 import AntDesign from "@expo/vector-icons/build/AntDesign";
 import Entypo from "@expo/vector-icons/build/Entypo";
 import Swipelist from "react-native-swipeable-list-view";
@@ -26,203 +24,204 @@ interface NavigationProps {
   navigation?: any;
 }
 
-const Category = ({ navigation }: NavigationProps) => {
+const Services = ({ navigation }: NavigationProps) => {
   const layout = useWindowDimensions();
 
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
-    { key: "mens", title: "Mens" },
-    { key: "womens", title: "Womens" },
-    { key: "kids", title: "Kids" },
-    { key: "weddings", title: "Weddings" },
-    { key: "woolens", title: "Woolens" },
-    { key: "others", title: "Others" },
-    { key: "offices", title: "Offices" },
+    { key: "pico", title: "Picos" },
+    { key: "button", title: "Buttons" },
+    { key: "hanger", title: "Hangers" },
+    { key: "weddings", title: "Wedding" },
+    { key: "polish", title: "Polish" },
+    { key: "repair", title: "Repair" },
+    { key: "darning", title: "Darning" },
+   
   ]);
 
-  const initialLayout = { width: Dimensions.get("window").width };
+  const initialLayout = { width: Dimensions.get('window').width };
+
 
   return (
-    <ScrollView>
-      <SafeAreaView>
-        <View style={{ height: 926, width: 428, backgroundColor: "#F3F1F6" }}>
-          <Box
-            style={{
-              marginLeft: 5,
-              marginTop: 30,
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
+    <ScrollView >
+    <SafeAreaView>
+      <View style={{ height: 926, width: 428, backgroundColor: "#F3F1F6" }}>
+        <Box
+          style={{
+            marginLeft: 5,
+            marginTop: 30,
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+          }}
+        >
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate("Category");
             }}
           >
-            <TouchableOpacity
-              onPress={() => {
-                navigation.navigate("Homepage");
-              }}
-            >
-              <AntDesign
-                name="left"
-                size={24}
-                color="#5D7EFC"
-                style={{ marginTop: 30, marginLeft: 10 }}
-              />
-            </TouchableOpacity>
-
-            <Box
-              style={{
-                width: 242,
-                height: 34,
-                marginTop: 16,
-              }}
-            >
-              <Text
-                style={{
-                  fontSize: 24,
-                  lineHeight: 44,
-                  fontWeight: "600",
-                  color: "#002B6B",
-                }}
-              >
-                Pickup
-              </Text>
-              <Text
-                style={{
-                  fontSize: 16,
-                  fontWeight: "400",
-                  color: "#000000",
-                }}
-              >
-                Book Now
-              </Text>
-            </Box>
-
-            <Entypo
-              name="dots-three-vertical"
+            <AntDesign
+              name="left"
               size={24}
-              color="black"
-              style={{ marginTop: 30, marginRight: 40 }}
+              color="#5D7EFC"
+              style={{ marginTop: 30, marginLeft: 10 }}
             />
-          </Box>
-          {/* data coming from backend */}
-          <Box
-            style={{
-              marginTop: 30,
-              marginLeft: 10,
-              display: "flex",
-              flexDirection: "row",
-            }}
-          >
-            <View
-              style={{
-                marginLeft: 6,
-                width: 178,
-                height: 38,
-                borderColor: "#FFFF",
-                borderStyle: "solid",
-                borderWidth: 1,
-                justifyContent: "center",
-                backgroundColor: "#FFFFFF",
-                borderRadius: 6,
-              }}
-            >
-              <Text
-                style={{ textAlign: "center", fontSize: 15, fontWeight: "400" }}
-              >
-                Name : Aksha Tiyagi
-              </Text>
-            </View>
-            <View
-              style={{
-                marginLeft: 8,
-                width: 178,
-                height: 38,
-                borderColor: "#FFFF",
-                borderStyle: "solid",
-                borderWidth: 1,
-                justifyContent: "center",
-                backgroundColor: "#FFFFFF",
-                borderRadius: 6,
-              }}
-            >
-              <Text
-                style={{ textAlign: "center", fontSize: 15, fontWeight: "400" }}
-              >
-                Mobile No 9870765790
-              </Text>
-            </View>
-          </Box>
-          <Box style={{ display: "flex" }}>
-            <View
-              style={{
-                flexDirection: "row",
-                marginTop: 8,
-                gap: 5,
-                marginLeft: 24,
-              }}
-            >
-              <Button
-                variant=""
-                width="171px"
-                height="48px"
-                colorScheme="darkText"
-                borderRadius="xl"
-                backgroundColor="#D9D9D9"
-              >
-                Normal Booking
-              </Button>
-              <Button
-                variant="solid"
-                backgroundColor="#002B6B"
-                width="171px"
-                height="48px"
-                borderRadius="xl"
-              >
-                ONLINE
-              </Button>
-            </View>
-          </Box>
-          <Box
-            style={{
-              display: "flex",
-              width: 382,
-              height: 40,
-              justifyContent: "center",
-              marginTop: 6,
-            }}
-          >
-            <View
-              style={{
-                flex: 1,
-                flexDirection: "row",
-                marginTop: 2,
-                gap: 8,
-                marginLeft: 15,
-              }}
-            >
-              <Button
-                variant="solid"
-                width="179px"
-                height="40px"
-                backgroundColor="#002B6B"
-              >
-                Category
-              </Button>
+          </TouchableOpacity>
 
-              <Button
-                variant=""
-                backgroundColor="#FFFFFF"
-                colorScheme="darkText"
-                width="179px"
-                height="40px"
-                onPress={() => {
-                  navigation.navigate("Services");
-                }}
-              >
-                Services
-              </Button>
-            </View>
+          <Box
+            style={{
+              width: 242,
+              height: 34,
+              marginTop: 16,
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 24,
+                lineHeight: 44,
+                fontWeight: "600",
+                color: "#002B6B",
+              }}
+            >
+              Pickup
+            </Text>
+            <Text
+              style={{
+                fontSize: 16,
+                fontWeight: "400",
+                color: "#000000",
+              }}
+            >
+              Book Now
+            </Text>
           </Box>
-          {/* <Box
+
+          <Entypo
+            name="dots-three-vertical"
+            size={24}
+            color="black"
+            style={{ marginTop: 30, marginRight: 40 }}
+          />
+        </Box>
+        {/* data coming from backend */}
+        <Box
+          style={{
+            marginTop: 30,
+            marginLeft: 10,
+            display: "flex",
+            flexDirection: "row",
+          }}
+        >
+          <View
+            style={{
+              marginLeft: 6,
+              width: 178,
+              height: 38,
+              borderColor: "#FFFF",
+              borderStyle: "solid",
+              borderWidth: 1,
+              justifyContent: "center",
+              backgroundColor: "#FFFFFF",
+              borderRadius: 6,
+            }}
+          >
+            <Text
+              style={{ textAlign: "center", fontSize: 15, fontWeight: "400" }}
+            >
+              Name : Aksha Tiyagi
+            </Text>
+          </View>
+          <View
+            style={{
+              marginLeft: 8,
+              width: 178,
+              height: 38,
+              borderColor: "#FFFF",
+              borderStyle: "solid",
+              borderWidth: 1,
+              justifyContent: "center",
+              backgroundColor: "#FFFFFF",
+              borderRadius: 6,
+            }}
+          >
+            <Text
+              style={{ textAlign: "center", fontSize: 15, fontWeight: "400" }}
+            >
+              Mobile No 9870765790
+            </Text>
+          </View>
+        </Box>
+        <Box style={{ display: "flex" }}>
+          <View
+            style={{
+              flexDirection: "row",
+              marginTop: 8,
+              gap: 5,
+              marginLeft: 24,
+            }}
+          >
+            <Button
+              variant=""
+              width="171px"
+              height="48px"
+              colorScheme="darkText"
+              borderRadius="xl"
+              backgroundColor="#D9D9D9"
+            >
+              Normal Booking
+            </Button>
+            <Button
+              variant="solid"
+              backgroundColor="#002B6B"
+              width="171px"
+              height="48px"
+              borderRadius="xl"
+            >
+              ONLINE
+            </Button>
+          </View>
+        </Box>
+        <Box
+          style={{
+            display: "flex",
+            width: 382,
+            height: 40,
+            justifyContent: "center",
+            marginTop: 6,
+          }}
+        >
+          <View
+            style={{
+              flex: 1,
+              flexDirection: "row",
+              marginTop: 2,
+              gap: 8,
+              marginLeft: 15,
+            }}
+          >
+            <Button
+              variant=""
+              width="179px"
+              height="40px"
+              backgroundColor="#FFFFFF"
+              onPress={() =>{navigation.navigate('Category')}}
+            >
+              Category
+            </Button>
+
+            <Button
+              variant="solid"
+              backgroundColor="#002B6B"
+              width="179px"
+              height="40px"
+             
+            
+            >
+              Services
+            </Button>
+          </View>
+        </Box>
+        {/* <Box
           style={{
             width: 360,
             height: 28,
@@ -308,40 +307,45 @@ const Category = ({ navigation }: NavigationProps) => {
             </Text>
           </Button>
         </Box> */}
-          <TabView
-            navigationState={{ index, routes }}
-            renderTabBar={(props) => (
-              <TabBar
-                scrollEnabled={true}
-                {...props}
-                renderLabel={({ route }) => (
-                  <Text style={{ color: "white" }}>{route.title}</Text>
-                )}
-                style={{ backgroundColor: "#002B6B" }}
-              />
-            )}
-            renderScene={renderScene}
-            onIndexChange={setIndex}
-            initialLayout={initialLayout}
-            swipeEnabled={false}
-            style={{ marginTop: 10 }}
-          />
-        </View>
-      </SafeAreaView>
+        <TabView
+        
+          navigationState={{ index, routes }}
+          renderTabBar={props => (
+            <TabBar
+             scrollEnabled={true}
+              {...props}
+              
+              renderLabel={({ route }) => (
+                <Text style={{ color: 'white' }}>
+                  {route.title}
+                </Text>
+                
+              )}
+              style={{backgroundColor: '#002B6B',}}
+            />
+          )}
+          renderScene={renderScene}
+          onIndexChange={setIndex}
+          initialLayout={initialLayout}
+          swipeEnabled={false}
+          style={{marginTop: 10}}         
+        />
+      </View>
+    </SafeAreaView>
     </ScrollView>
   );
 };
-export default Category;
+export default Services;
 
 //COMPONENT RENDERING
 const renderScene = SceneMap({
-  mens: MensComponent,
-  womens: WomenComponent,
-  kids: KidsComponent,
+  pico: PicoComponent,
+  button: ButtonComponent,
+  hanger: HangerComponent,
   weddings: WeddingsComponent,
-  woolens: WoolensComponent,
-  others: OthersComponent,
-  offices: OfficesComponent,
+  polish: PolishComponent,
+  repair: RepairComponent,
+  darning: DarningComponent,
 });
 
 // DUMMY DATA
@@ -392,22 +396,14 @@ const data = [
   },
 ];
 
-// MENS COMPONENT
-function MensComponent() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  const handleAddCart = () => {
-    setIsVisible(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsVisible(false);
-  };
-
+// PICO COMPONENT
+function PicoComponent() {
   const RightSwipe = () => {
     return (
       <Button
-        onPress={handleAddCart}
+        onPress={() => {
+          Alert.alert("Delete?", "Are you sure to delete this item");
+        }}
         style={{
           marginTop: 20,
           backgroundColor: "#002B6B",
@@ -417,70 +413,7 @@ function MensComponent() {
           marginRight: 50,
         }}
       >
-        <Ionicons name="cart-outline" size={24} color="white" />
-
-        <View>
-          <Modal
-            animationType="fade"
-            presentationStyle="overFullScreen"
-            transparent={true}
-            visible={isVisible}
-            onRequestClose={handleCloseModal}
-          >
-            <View
-              style={{
-                width: 330,
-                height: 720,
-                left: 35,
-                top: 10,
-                borderColor: "#FFFFFF",
-                borderWidth: 2,
-                borderStyle: "solid",
-                margin: "auto",
-                backgroundColor: "#FFFFFF",
-                borderRadius: 15,
-              }}
-            >
-              <View
-                style={{
-                  width: 310,
-                  height: 50,
-                  backgroundColor: "green",
-                  left: 8,
-                  top: 40,
-                }}
-              >
-                <Text
-                  style={{
-                    textAlign: "center",
-                    fontSize: 22,
-                    marginTop: 15,
-                    color: "#FFFFFF",
-                  }}
-                >
-                  Garments Details
-                </Text>
-              </View>
-              <View style={{ top: 130, left: 14 }}>
-                <View>
-                  <Text style={{left:6}}>Price</Text>
-                  <TextInput style={styles.input1} keyboardType="number-pad" placeholder="0" placeholderTextColor="black" />
-                </View>
-                <View>
-                  <Text style={{top:20,left:6}}>Quantity</Text>
-                  <TextInput style={styles.input2} keyboardType="number-pad" placeholder="1" placeholderTextColor="black" />
-                </View>
-              </View>
-              <Button
-                style={{ top: 380, width: 300, left: 14 }}
-                onPress={handleCloseModal}
-                bgColor="red.500"
-              >
-                Close
-              </Button>
-            </View>
-          </Modal>
-        </View>
+       <Ionicons name="cart-outline" size={24} color="white" />     
       </Button>
     );
   };
@@ -576,23 +509,14 @@ function MensComponent() {
   );
 }
 
-// Women's COMPONENT
-function WomenComponent() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  const handleAddCart = () => {
-    setIsVisible(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsVisible(false);
-  };
-
-
+// BUTTON COMPONENT
+function ButtonComponent() {
   const RightSwipe = () => {
     return (
       <Button
-        onPress={handleAddCart}
+        onPress={() => {
+          Alert.alert("Delete?", "Are you sure to delete this item");
+        }}
         style={{
           marginTop: 20,
           backgroundColor: "#002B6B",
@@ -602,69 +526,7 @@ function WomenComponent() {
           marginRight: 50,
         }}
       >
-        <Ionicons name="cart-outline" size={24} color="white" />
-
-        <View>
-          <Modal
-            animationType="fade"
-            presentationStyle="overFullScreen"
-            transparent={true}
-            visible={isVisible}
-            onRequestClose={handleCloseModal}
-          >
-            <View
-              style={{
-                width: 330,
-                height: 720,
-                left: 35,
-                top: 10,
-                borderColor: "#FFFFFF",
-                borderWidth: 2,
-                borderStyle: "solid",
-                margin: "auto",
-                backgroundColor: "#FFFFFF",
-                borderRadius: 15,
-              }}
-            >
-              <View
-                style={{
-                  width: 310,
-                  height: 50,
-                  backgroundColor: "green",
-                  left: 8,
-                  top: 40,
-                }}
-              >
-                <Text
-                  style={{
-                    textAlign: "center",
-                    fontSize: 22,
-                    marginTop: 15,
-                    color: "#FFFFFF",
-                  }}
-                >
-                  Garments Details
-                </Text>
-              </View>
-              <View style={{ top: 130, left: 14 }}>
-                <View>
-                  <Text>Price</Text>
-                  <TextInput style={styles.input1} keyboardType="number-pad" placeholder="0" placeholderTextColor="gray" />
-                </View>
-                <View>
-                  <Text style={{}}>q</Text>
-                  <TextInput style={styles.input2} keyboardType="number-pad" />
-                </View>
-              </View>
-              <Button
-                style={{ top: 380, width: 300, left: 14 }}
-                onPress={handleCloseModal}
-              >
-                Close
-              </Button>
-            </View>
-          </Modal>
-        </View>
+       <Ionicons name="cart-outline" size={24} color="white" />     
       </Button>
     );
   };
@@ -760,23 +622,14 @@ function WomenComponent() {
   );
 }
 
-//BEDDINGS COMPONENT
-function KidsComponent() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  const handleAddCart = () => {
-    setIsVisible(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsVisible(false);
-  };
-
-
+//HANGER COMPONENT
+function HangerComponent() {
   const RightSwipe = () => {
     return (
       <Button
-        onPress={handleAddCart}
+        onPress={() => {
+          Alert.alert("Delete?", "Are you sure to delete this item");
+        }}
         style={{
           marginTop: 20,
           backgroundColor: "#002B6B",
@@ -786,69 +639,7 @@ function KidsComponent() {
           marginRight: 50,
         }}
       >
-        <Ionicons name="cart-outline" size={24} color="white" />
-
-        <View>
-          <Modal
-            animationType="fade"
-            presentationStyle="overFullScreen"
-            transparent={true}
-            visible={isVisible}
-            onRequestClose={handleCloseModal}
-          >
-            <View
-              style={{
-                width: 330,
-                height: 720,
-                left: 35,
-                top: 10,
-                borderColor: "#FFFFFF",
-                borderWidth: 2,
-                borderStyle: "solid",
-                margin: "auto",
-                backgroundColor: "#FFFFFF",
-                borderRadius: 15,
-              }}
-            >
-              <View
-                style={{
-                  width: 310,
-                  height: 50,
-                  backgroundColor: "green",
-                  left: 8,
-                  top: 40,
-                }}
-              >
-                <Text
-                  style={{
-                    textAlign: "center",
-                    fontSize: 22,
-                    marginTop: 15,
-                    color: "#FFFFFF",
-                  }}
-                >
-                  Garments Details
-                </Text>
-              </View>
-              <View style={{ top: 130, left: 14 }}>
-                <View>
-                  <Text>Price</Text>
-                  <TextInput style={styles.input1} keyboardType="number-pad" placeholder="0" placeholderTextColor="gray" />
-                </View>
-                <View>
-                  <Text style={{}}>q</Text>
-                  <TextInput style={styles.input2} keyboardType="number-pad" />
-                </View>
-              </View>
-              <Button
-                style={{ top: 380, width: 300, left: 14 }}
-                onPress={handleCloseModal}
-              >
-                Close
-              </Button>
-            </View>
-          </Modal>
-        </View>
+       <Ionicons name="cart-outline" size={24} color="white" />     
       </Button>
     );
   };
@@ -946,21 +737,12 @@ function KidsComponent() {
 
 //WEDDINGS COMPONENT
 function WeddingsComponent() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  const handleAddCart = () => {
-    setIsVisible(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsVisible(false);
-  };
-
-
   const RightSwipe = () => {
     return (
       <Button
-        onPress={handleAddCart}
+        onPress={() => {
+          Alert.alert("Delete?", "Are you sure to delete this item");
+        }}
         style={{
           marginTop: 20,
           backgroundColor: "#002B6B",
@@ -970,69 +752,7 @@ function WeddingsComponent() {
           marginRight: 50,
         }}
       >
-        <Ionicons name="cart-outline" size={24} color="white" />
-
-        <View>
-          <Modal
-            animationType="fade"
-            presentationStyle="overFullScreen"
-            transparent={true}
-            visible={isVisible}
-            onRequestClose={handleCloseModal}
-          >
-            <View
-              style={{
-                width: 330,
-                height: 720,
-                left: 35,
-                top: 10,
-                borderColor: "#FFFFFF",
-                borderWidth: 2,
-                borderStyle: "solid",
-                margin: "auto",
-                backgroundColor: "#FFFFFF",
-                borderRadius: 15,
-              }}
-            >
-              <View
-                style={{
-                  width: 310,
-                  height: 50,
-                  backgroundColor: "green",
-                  left: 8,
-                  top: 40,
-                }}
-              >
-                <Text
-                  style={{
-                    textAlign: "center",
-                    fontSize: 22,
-                    marginTop: 15,
-                    color: "#FFFFFF",
-                  }}
-                >
-                  Garments Details
-                </Text>
-              </View>
-              <View style={{ top: 130, left: 14 }}>
-                <View>
-                  <Text>Price</Text>
-                  <TextInput style={styles.input1} keyboardType="number-pad" placeholder="0" placeholderTextColor="gray" />
-                </View>
-                <View>
-                  <Text style={{}}>q</Text>
-                  <TextInput style={styles.input2} keyboardType="number-pad" />
-                </View>
-              </View>
-              <Button
-                style={{ top: 380, width: 300, left: 14 }}
-                onPress={handleCloseModal}
-              >
-                Close
-              </Button>
-            </View>
-          </Modal>
-        </View>
+       <Ionicons name="cart-outline" size={24} color="white" />     
       </Button>
     );
   };
@@ -1128,391 +848,14 @@ function WeddingsComponent() {
   );
 }
 
-//WOOLENS COMPONENT
-function WoolensComponent() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  const handleAddCart = () => {
-    setIsVisible(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsVisible(false);
-  };
-
-
+//POLISH COMPONENT
+function PolishComponent() {
   const RightSwipe = () => {
     return (
       <Button
-      onPress={handleAddCart}
-      style={{
-        marginTop: 20,
-        backgroundColor: "#002B6B",
-        width: 60,
-        borderRadius: 10,
-        height: 90,
-        marginRight: 50,
-      }}
-    >
-      <Ionicons name="cart-outline" size={24} color="white" />
-
-      <View>
-        <Modal
-          animationType="fade"
-          presentationStyle="overFullScreen"
-          transparent={true}
-          visible={isVisible}
-          onRequestClose={handleCloseModal}
-        >
-          <View
-            style={{
-              width: 330,
-              height: 720,
-              left: 35,
-              top: 10,
-              borderColor: "#FFFFFF",
-              borderWidth: 2,
-              borderStyle: "solid",
-              margin: "auto",
-              backgroundColor: "#FFFFFF",
-              borderRadius: 15,
-            }}
-          >
-            <View
-              style={{
-                width: 310,
-                height: 50,
-                backgroundColor: "green",
-                left: 8,
-                top: 40,
-              }}
-            >
-              <Text
-                style={{
-                  textAlign: "center",
-                  fontSize: 22,
-                  marginTop: 15,
-                  color: "#FFFFFF",
-                }}
-              >
-                Garments Details
-              </Text>
-            </View>
-            <View style={{ top: 130, left: 14 }}>
-              <View>
-                <Text>Price</Text>
-                <TextInput style={styles.input1} keyboardType="number-pad" placeholder="0" placeholderTextColor="gray" />
-              </View>
-              <View>
-                <Text style={{}}>q</Text>
-                <TextInput style={styles.input2} keyboardType="number-pad" />
-              </View>
-            </View>
-            <Button
-              style={{ top: 380, width: 300, left: 14 }}
-              onPress={handleCloseModal}
-            >
-              Close
-            </Button>
-          </View>
-        </Modal>
-      </View>
-    </Button>
-    );
-  };
-
-  return (
-    <SafeAreaView>
-      <Swipelist
-        data={data}
-        renderRightItem={(data, index) => (
-          <Box
-            key={index}
-            style={{
-              width: SCREEN_WIDTH,
-              height: 90,
-              marginTop: 18,
-              display: "flex",
-              flexDirection: "row",
-              borderStyle: "solid",
-              borderColor: "#FFDBE680",
-              borderWidth: 1,
-              backgroundColor: "#FFDBE680",
-              marginLeft: 8,
-              borderRadius: 10,
-            }}
-          >
-            <View style={{ marginLeft: 18 }}>
-              <Image
-                style={{ height: 74, width: 74 }}
-                alt="product-image"
-                source={{ uri: data.Imageurl }}
-              />
-            </View>
-            <View
-              style={{
-                width: 57,
-                height: 65,
-                marginLeft: 40,
-                justifyContent: "center",
-              }}
-            >
-              <Text style={{ fontSize: 16, textAlign: "center" }}>
-                {data.name}
-              </Text>
-              <View
-                style={{
-                  width: 45,
-                  height: 23,
-                  display: "flex",
-                  flexDirection: "row",
-                  marginTop: 4,
-                  backgroundColor: "#DBDBDB",
-                  justifyContent: "center",
-                }}
-              >
-                <AntDesign
-                  name="plussquareo"
-                  size={17}
-                  color="black"
-                  style={{ marginTop: 4 }}
-                />
-                <Text
-                  style={{ color: "#002B6B", fontSize: 16, fontWeight: "700" }}
-                >
-                  {data.quantity}
-                </Text>
-                <AntDesign
-                  name="minussquareo"
-                  size={17}
-                  color="black"
-                  style={{ marginTop: 4 }}
-                />
-              </View>
-            </View>
-            <View
-              style={{
-                width: 64,
-                height: 45,
-                marginLeft: 80,
-                justifyContent: "center",
-                marginTop: 14,
-              }}
-            >
-              <Text style={{ fontSize: 16, color: "#000000" }}>
-                {data.Price}
-              </Text>
-            </View>
-          </Box>
-        )}
-        renderHiddenItem={RightSwipe}
-        rightOpenValue={100}
-      />
-    </SafeAreaView>
-  );
-}
-
-//  OTHERS COMPONENT
-function OthersComponent() {
-
-  const [isVisible, setIsVisible] = useState(false);
-
-  const handleAddCart = () => {
-    setIsVisible(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsVisible(false);
-  };
-
-  const RightSwipe = () => {
-    return (
-      <Button
-      onPress={handleAddCart}
-      style={{
-        marginTop: 20,
-        backgroundColor: "#002B6B",
-        width: 60,
-        borderRadius: 10,
-        height: 90,
-        marginRight: 50,
-      }}
-    >
-      <Ionicons name="cart-outline" size={24} color="white" />
-
-      <View>
-        <Modal
-          animationType="fade"
-          presentationStyle="overFullScreen"
-          transparent={true}
-          visible={isVisible}
-          onRequestClose={handleCloseModal}
-        >
-          <View
-            style={{
-              width: 330,
-              height: 720,
-              left: 35,
-              top: 10,
-              borderColor: "#FFFFFF",
-              borderWidth: 2,
-              borderStyle: "solid",
-              margin: "auto",
-              backgroundColor: "#FFFFFF",
-              borderRadius: 15,
-            }}
-          >
-            <View
-              style={{
-                width: 310,
-                height: 50,
-                backgroundColor: "green",
-                left: 8,
-                top: 40,
-              }}
-            >
-              <Text
-                style={{
-                  textAlign: "center",
-                  fontSize: 22,
-                  marginTop: 15,
-                  color: "#FFFFFF",
-                }}
-              >
-                Garments Details
-              </Text>
-            </View>
-            <View style={{ top: 130, left: 14 }}>
-              <View>
-                <Text>Price</Text>
-                <TextInput style={styles.input1} keyboardType="number-pad" placeholder="0" placeholderTextColor="gray" />
-              </View>
-              <View>
-                <Text style={{}}>q</Text>
-                <TextInput style={styles.input2} keyboardType="number-pad" />
-              </View>
-            </View>
-            <Button
-              style={{ top: 380, width: 300, left: 14 }}
-              onPress={handleCloseModal}
-            >
-              Close
-            </Button>
-          </View>
-        </Modal>
-      </View>
-    </Button>
-    );
-  };
-
-  return (
-    <SafeAreaView>
-      <Swipelist
-        data={data}
-        renderRightItem={(data, index) => (
-          <Box
-            key={index}
-            style={{
-              width: SCREEN_WIDTH,
-              height: 90,
-              marginTop: 18,
-              display: "flex",
-              flexDirection: "row",
-              borderStyle: "solid",
-              borderColor: "#FFDBE680",
-              borderWidth: 1,
-              backgroundColor: "#FFDBE680",
-              marginLeft: 8,
-              borderRadius: 10,
-            }}
-          >
-            <View style={{ marginLeft: 18 }}>
-              <Image
-                style={{ height: 74, width: 74 }}
-                alt="product-image"
-                source={{ uri: data.Imageurl }}
-              />
-            </View>
-            <View
-              style={{
-                width: 57,
-                height: 65,
-                marginLeft: 40,
-                justifyContent: "center",
-              }}
-            >
-              <Text style={{ fontSize: 16, textAlign: "center" }}>
-                {data.name}
-              </Text>
-              <View
-                style={{
-                  width: 45,
-                  height: 23,
-                  display: "flex",
-                  flexDirection: "row",
-                  marginTop: 4,
-                  backgroundColor: "#DBDBDB",
-                  justifyContent: "center",
-                }}
-              >
-                <AntDesign
-                  name="plussquareo"
-                  size={17}
-                  color="black"
-                  style={{ marginTop: 4 }}
-                />
-                <Text
-                  style={{ color: "#002B6B", fontSize: 16, fontWeight: "700" }}
-                >
-                  {data.quantity}
-                </Text>
-                <AntDesign
-                  name="minussquareo"
-                  size={17}
-                  color="black"
-                  style={{ marginTop: 4 }}
-                />
-              </View>
-            </View>
-            <View
-              style={{
-                width: 64,
-                height: 45,
-                marginLeft: 80,
-                justifyContent: "center",
-                marginTop: 14,
-              }}
-            >
-              <Text style={{ fontSize: 16, color: "#000000" }}>
-                {data.Price}
-              </Text>
-            </View>
-          </Box>
-        )}
-        renderHiddenItem={RightSwipe}
-        rightOpenValue={100}
-      />
-    </SafeAreaView>
-  );
-}
-
-//OFFICE COMPONENT
-function OfficesComponent() {
-
-  const [isVisible, setIsVisible] = useState(false);
-
-  const handleAddCart = () => {
-    setIsVisible(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsVisible(false);
-  };
-
-  const RightSwipe = () => {
-    return (
-      <Button
-        onPress={handleAddCart}
+        onPress={() => {
+          Alert.alert("Delete?", "Are you sure to delete this item");
+        }}
         style={{
           marginTop: 20,
           backgroundColor: "#002B6B",
@@ -1522,69 +865,7 @@ function OfficesComponent() {
           marginRight: 50,
         }}
       >
-        <Ionicons name="cart-outline" size={24} color="white" />
-
-        <View>
-          <Modal
-            animationType="fade"
-            presentationStyle="overFullScreen"
-            transparent={true}
-            visible={isVisible}
-            onRequestClose={handleCloseModal}
-          >
-            <View
-              style={{
-                width: 330,
-                height: 720,
-                left: 35,
-                top: 10,
-                borderColor: "#FFFFFF",
-                borderWidth: 2,
-                borderStyle: "solid",
-                margin: "auto",
-                backgroundColor: "#FFFFFF",
-                borderRadius: 15,
-              }}
-            >
-              <View
-                style={{
-                  width: 310,
-                  height: 50,
-                  backgroundColor: "green",
-                  left: 8,
-                  top: 40,
-                }}
-              >
-                <Text
-                  style={{
-                    textAlign: "center",
-                    fontSize: 22,
-                    marginTop: 15,
-                    color: "#FFFFFF",
-                  }}
-                >
-                  Garments Details
-                </Text>
-              </View>
-              <View style={{ top: 130, left: 14 }}>
-                <View>
-                  <Text>Price</Text>
-                  <TextInput style={styles.input1} keyboardType="number-pad" placeholder="0" placeholderTextColor="gray" />
-                </View>
-                <View>
-                  <Text style={{}}>q</Text>
-                  <TextInput style={styles.input2} keyboardType="number-pad" />
-                </View>
-              </View>
-              <Button
-                style={{ top: 380, width: 300, left: 14 }}
-                onPress={handleCloseModal}
-              >
-                Close
-              </Button>
-            </View>
-          </Modal>
-        </View>
+       <Ionicons name="cart-outline" size={24} color="white" />     
       </Button>
     );
   };
@@ -1680,25 +961,232 @@ function OfficesComponent() {
   );
 }
 
-const styles = StyleSheet.create({
-  input1: {
-    width: 300,
-    height: 60,
-    backgroundColor: "#FFFFFF",
-    borderColor: "gray.500",
-    borderStyle: "solid",
-    borderWidth: 1,
-    borderRadius: 7,
-    fontSize:30
-  },
-  input2: {
-    width: 100,
-    height: 60,
-    borderColor: "gray.500",
-    borderStyle: "solid",
-    borderWidth: 1,
-    borderRadius: 7,
-    marginTop: 20,
-    fontSize:30
-  },
-});
+
+//  REPAIR COMPONENT
+function RepairComponent() {
+  const RightSwipe = () => {
+    return (
+      <Button
+        onPress={() => {
+          Alert.alert("Delete?", "Are you sure to delete this item");
+        }}
+        style={{
+          marginTop: 20,
+          backgroundColor: "#002B6B",
+          width: 60,
+          borderRadius: 10,
+          height: 90,
+          marginRight: 50,
+        }}
+      >
+       <Ionicons name="cart-outline" size={24} color="white" />     
+      </Button>
+    );
+  };
+
+  return (
+    <SafeAreaView>
+      <Swipelist
+        data={data}
+        renderRightItem={(data, index) => (
+          <Box
+            key={index}
+            style={{
+              width: SCREEN_WIDTH,
+              height: 90,
+              marginTop: 18,
+              display: "flex",
+              flexDirection: "row",
+              borderStyle: "solid",
+              borderColor: "#FFDBE680",
+              borderWidth: 1,
+              backgroundColor: "#FFDBE680",
+              marginLeft: 8,
+              borderRadius: 10,
+            }}
+          >
+            <View style={{ marginLeft: 18 }}>
+              <Image
+                style={{ height: 74, width: 74 }}
+                alt="product-image"
+                source={{ uri: data.Imageurl }}
+              />
+            </View>
+            <View
+              style={{
+                width: 57,
+                height: 65,
+                marginLeft: 40,
+                justifyContent: "center",
+              }}
+            >
+              <Text style={{ fontSize: 16, textAlign: "center" }}>
+                {data.name}
+              </Text>
+              <View
+                style={{
+                  width: 45,
+                  height: 23,
+                  display: "flex",
+                  flexDirection: "row",
+                  marginTop: 4,
+                  backgroundColor: "#DBDBDB",
+                  justifyContent: "center",
+                }}
+              >
+                <AntDesign
+                  name="plussquareo"
+                  size={17}
+                  color="black"
+                  style={{ marginTop: 4 }}
+                />
+                <Text
+                  style={{ color: "#002B6B", fontSize: 16, fontWeight: "700" }}
+                >
+                  {data.quantity}
+                </Text>
+                <AntDesign
+                  name="minussquareo"
+                  size={17}
+                  color="black"
+                  style={{ marginTop: 4 }}
+                />
+              </View>
+            </View>
+            <View
+              style={{
+                width: 64,
+                height: 45,
+                marginLeft: 80,
+                justifyContent: "center",
+                marginTop: 14,
+              }}
+            >
+              <Text style={{ fontSize: 16, color: "#000000" }}>
+                {data.Price}
+              </Text>
+            </View>
+          </Box>
+        )}
+        renderHiddenItem={RightSwipe}
+        rightOpenValue={100}
+      />
+    </SafeAreaView>
+  );
+}
+
+
+//DARNING COMPONENT
+function DarningComponent() {
+  const RightSwipe = () => {
+    return (
+      <Button
+        onPress={() => {
+          Alert.alert("Delete?", "Are you sure to delete this item");
+        }}
+        style={{
+          marginTop: 20,
+          backgroundColor: "#002B6B",
+          width: 60,
+          borderRadius: 10,
+          height: 90,
+          marginRight: 50,
+        }}
+      >
+       <Ionicons name="cart-outline" size={24} color="white" />     
+      </Button>
+    );
+  };
+
+  return (
+    <SafeAreaView>
+      <Swipelist
+        data={data}
+        renderRightItem={(data, index) => (
+          <Box
+            key={index}
+            style={{
+              width: SCREEN_WIDTH,
+              height: 90,
+              marginTop: 18,
+              display: "flex",
+              flexDirection: "row",
+              borderStyle: "solid",
+              borderColor: "#FFDBE680",
+              borderWidth: 1,
+              backgroundColor: "#FFDBE680",
+              marginLeft: 8,
+              borderRadius: 10,
+            }}
+          >
+            <View style={{ marginLeft: 18 }}>
+              <Image
+                style={{ height: 74, width: 74 }}
+                alt="product-image"
+                source={{ uri: data.Imageurl }}
+              />
+            </View>
+            <View
+              style={{
+                width: 57,
+                height: 65,
+                marginLeft: 40,
+                justifyContent: "center",
+              }}
+            >
+              <Text style={{ fontSize: 16, textAlign: "center" }}>
+                {data.name}
+              </Text>
+              <View
+                style={{
+                  width: 45,
+                  height: 23,
+                  display: "flex",
+                  flexDirection: "row",
+                  marginTop: 4,
+                  backgroundColor: "#DBDBDB",
+                  justifyContent: "center",
+                }}
+              >
+                <AntDesign
+                  name="plussquareo"
+                  size={17}
+                  color="black"
+                  style={{ marginTop: 4 }}
+                />
+                <Text
+                  style={{ color: "#002B6B", fontSize: 16, fontWeight: "700" }}
+                >
+                  {data.quantity}
+                </Text>
+                <AntDesign
+                  name="minussquareo"
+                  size={17}
+                  color="black"
+                  style={{ marginTop: 4 }}
+                />
+              </View>
+            </View>
+            <View
+              style={{
+                width: 64,
+                height: 45,
+                marginLeft: 80,
+                justifyContent: "center",
+                marginTop: 14,
+              }}
+            >
+              <Text style={{ fontSize: 16, color: "#000000" }}>
+                {data.Price}
+              </Text>
+            </View>
+          </Box>
+        )}
+        renderHiddenItem={RightSwipe}
+        rightOpenValue={100}
+      />
+    </SafeAreaView>
+  );
+}
+
+

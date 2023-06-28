@@ -39,7 +39,6 @@ const Welcome = ({ navigation }: NavigationProps) => {
               display: "flex",
               flexDirection: "row",
               justifyContent: "space-between",
-              
             }}
           >
             <AntDesign
@@ -66,7 +65,16 @@ const Welcome = ({ navigation }: NavigationProps) => {
               source={require("../assets/Photos/elaundry.png")}
               width="250px"
             />
-            <Box style={{width:"100%",height:299,marginTop:30,display:"flex",justifyContent:"center",alignItems:"center"}}>
+            <Box
+              style={{
+                width: "100%",
+                height: 299,
+                marginTop: 30,
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
               <Image
                 alt="image-2"
                 source={require("../assets/Photos/pngwing.png")}
@@ -78,7 +86,7 @@ const Welcome = ({ navigation }: NavigationProps) => {
           </Box>
           <View
             style={{
-            top: 35,
+              top: 35,
             }}
           >
             <Center>
@@ -210,16 +218,14 @@ const Welcome = ({ navigation }: NavigationProps) => {
                 placeholder="Enter your password"
                 keyboardType="ascii-capable"
                 textContentType="password"
+                secureTextEntry={true}
               />
             </Box>
           </View>
 
           <Box style={styles.viewButtonTop}>
-            <View
-              style={styles.viewButtonSection}
-            >
+            <View style={styles.viewButtonSection}>
               <Button
-              
                 variant="solid"
                 width="37%"
                 height="40px"

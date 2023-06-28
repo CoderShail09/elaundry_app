@@ -6,7 +6,7 @@ import Homepage from '../Screens/Homepage'
 import Offline from '../Screens/Offline'
 import Pickup from '../Screens/Pickup'
 import Category from '../Screens/Category'
-import Services from '../Screens/services'
+import Services from '../Screens/Service'
 import AccountInfo from '../Screens/AccountInfo'
 import OrderDelevery from '../Screens/OrderDelevery'
 import NewOrder from '../Screens/NewOrder'
@@ -25,13 +25,13 @@ const StackNavigator = () => {
     <Stack.Screen name="Offline"  component={Offline} options={{headerShown:false}}   />
     <Stack.Screen name="Pickup"  component={Pickup} options={{headerShown:false}}   />
     <Stack.Screen name="Category"  component={Category} options={{headerShown:false}}   />
-    <Stack.Screen name="Services"  component={Services} options={{headerShown:false}}   />
     <Stack.Screen name="Accountinfo"  component={AccountInfo} options={{headerShown:false}}   />
     <Stack.Screen name="OrderDelevery"  component={OrderDelevery} options={{headerShown:false}}   />
     <Stack.Screen name="NewOrder"  component={NewOrder} options={{headerShown:false}}   />
     <Stack.Screen name="PickupFilter"  component={PickupFilter} options={{headerShown:false}}   />
     <Stack.Screen name="Notification"  component={Notification} options={{headerShown:false}}   />
     <Stack.Screen name="PickupDate"  component={PickupDate} options={{headerShown:false}}   />
+    <Stack.Screen name="Services"  component={Services} options={{headerShown:false}}   />
          
     </Stack.Navigator>
  </NavigationContainer>
